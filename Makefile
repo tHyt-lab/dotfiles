@@ -1,18 +1,18 @@
 # Do everything.
 # all: init link defaults brew
-all: init fonts
+all: init link defaults fonts
 
 # Set initial preference.
 init:
 	.bin/init.sh
 
 # Link dotfiles.
-# link:
-# 	.bin/link.sh
+link:
+	.bin/link.sh
 
 # Set macOS system preferences.
-# defaults:
-# 	.bin/defaults.sh
+defaults:
+	.bin/defaults.sh
 
 # Install macOS applications.
 # brew:
