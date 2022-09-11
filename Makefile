@@ -1,10 +1,10 @@
 # Do everything.
 # all: init link defaults brew
-all: fonts
+all: init fonts
 
 # Set initial preference.
-# init:
-# 	.bin/init.sh
+init:
+	.bin/init.sh
 
 # Link dotfiles.
 # link:
