@@ -22,5 +22,7 @@ cask "google-chrome"
 cask "iterm2"
 cask "the-unarchiver"
 cask "visual-studio-code"
-mas "RunCat", id: 1429033973
-mas "Xcode", id: 497799835
+
+# mas
+# mas "RunCat", id: 1429033973
+# mas "Xcode", id: 497799835
