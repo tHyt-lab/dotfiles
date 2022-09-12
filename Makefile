@@ -1,6 +1,6 @@
 # Do everything.
 # all: init link defaults brew
-all: init link defaults fonts
+all: init link defaults brew fonts
 
 # Set initial preference.
 init:
