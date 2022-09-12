@@ -15,8 +15,8 @@ defaults:
 	.bin/defaults.sh
 
 # Install macOS applications.
-# brew:
-# 	.bin/brew.sh
+brew:
+	.bin/brew.sh
 
 fonts:
 	.bin/font-install.sh

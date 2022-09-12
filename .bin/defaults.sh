@@ -13,6 +13,9 @@ defaults write -g ApplePressAndHoldEnabled -bool true
 
 defaults write -g com.apple.trackpad.scaling -float 1.5
 
+defaults write -g AppleEnableMouseSwipeNavigateWithScrolls -bool true
+defaults write -g com.apple.mouse.scaling -int 2
+
 # appearance mode
 defaults write -g AppleInterfaceStyleSwitchesAutomatically -bool true
 
@@ -25,10 +28,11 @@ sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
 # TrackPad
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
-
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 
-defaults write com.apple.finder iconSize -int 40
+defaults write com.apple.AppleMultitouchMouse MouseButtonMode -string "TwoButton"
+defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode -string "TwoButton"
 killall Finder &> /dev/null
 
 # Dock
@@ -49,6 +53,8 @@ defaults write com.apple.menuextra.clock FlashDateSeparators -bool false
 defaults write com.apple.menuextra.clock Show24Hour -bool true
 defaults write com.apple.menuextra.clock ShowDate -bool true
 defaults write com.apple.menuextra.clock ShowSeconds -bool true
+
+defaults write com.apple.rapport familySyncedName -string "Mac"
 
 killall SystemUIServer &> /dev/null
 
