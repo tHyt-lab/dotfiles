@@ -15,6 +15,7 @@ brew "git"
 brew "mas"
 brew "lima"
 brew "wget"
+brew "docker"
 
 # Cask
 cask "appcleaner"
