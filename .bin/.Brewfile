@@ -13,6 +13,8 @@ brew "bottom"
 brew "httpie"
 brew "git"
 brew "mas"
+brew "lima"
+brew "wget"
 
 # Cask
 cask "appcleaner"

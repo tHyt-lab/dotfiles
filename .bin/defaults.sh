@@ -6,8 +6,8 @@ if [ "$(uname)" != "Darwin" ] ; then
 fi
 
 # keyboard
-defaults write -g InitialKeyRepeat -int 10
-defaults write -g KeyRepeat -int 1
+defaults write -g InitialKeyRepeat -int 15
+defaults write -g KeyRepeat -int 2
 defaults write -g com.apple.keyboard.fnState -bool true
 defaults write -g ApplePressAndHoldEnabled -bool true
 
