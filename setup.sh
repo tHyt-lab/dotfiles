@@ -50,4 +50,13 @@ cat << EOF
 EOF
 ./.bin/font-install.sh
 
+cat << EOF
+
+############################################################
+  Complete.
+  Please restart your PC for the settings to take effect.
+############################################################
+
+EOF
+
 exec $SHELL -l

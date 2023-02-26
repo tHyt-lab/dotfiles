@@ -11,28 +11,34 @@ defaults write -g KeyRepeat -int 2
 defaults write -g com.apple.keyboard.fnState -bool true
 defaults write -g ApplePressAndHoldEnabled -bool true
 
+# Trackpad
 defaults write -g com.apple.trackpad.scaling -float 1.5
 
 defaults write -g AppleEnableMouseSwipeNavigateWithScrolls -bool true
 defaults write -g com.apple.mouse.scaling -int 2
 
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+defaults write com.apple.AppleMultitouchMouse MouseButtonMode -string "TwoButton"
+
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode -string "TwoButton"
+
 # appearance mode
 defaults write -g AppleInterfaceStyleSwitchesAutomatically -bool true
 
-## Show files with all extensions
+# Desktop
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
+
+# Finder
 defaults write -g AppleShowAllExtensions -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.finder ShowPathbar -bool true
+defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
 
 # Firewall
 sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
-
-# TrackPad
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
-defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
-defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-
-defaults write com.apple.AppleMultitouchMouse MouseButtonMode -string "TwoButton"
-defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode -string "TwoButton"
 
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 32" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 16" ~/Library/Preferences/com.apple.finder.plist
@@ -42,6 +48,7 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode -
 killall Finder &> /dev/null
 
 # Dock
+# icon size
 defaults write com.apple.dock tilesize -int 30
 defaults write com.apple.dock largesize -int 70
 # Hide recently used applications
