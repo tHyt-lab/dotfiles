@@ -7,4 +7,7 @@ xcode-select --install
 which brew >/dev/null 2>&1 || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # python symbolic link
-sudo ln -s $(which python3) /usr/local/bin/python
+# sudo ln -s $(which python3) /usr/local/bin/python
+
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
