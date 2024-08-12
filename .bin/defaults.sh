@@ -9,7 +9,7 @@ fi
 defaults write -g InitialKeyRepeat -int 15
 defaults write -g KeyRepeat -int 2
 defaults write -g com.apple.keyboard.fnState -bool true
-defaults write -g ApplePressAndHoldEnabled -bool true
+defaults write -g ApplePressAndHoldEnabled -bool false
 
 # Trackpad
 defaults write -g com.apple.trackpad.scaling -float 1.5
@@ -70,4 +70,3 @@ defaults write com.apple.menuextra.clock ShowSeconds -bool true
 defaults write com.apple.rapport familySyncedName -string "Mac"
 
 killall SystemUIServer &> /dev/null
-
