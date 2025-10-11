@@ -10,6 +10,16 @@ cat << EOF
 EOF
 ./.bin/init.sh
 
+# Install Oh My Zsh and plugins.
+cat << EOF
+
+##################################################
+  Install Oh My Zsh and plugins.
+##################################################
+
+EOF
+./.bin/omz-setup.sh
+
 # Link dotfiles.
 cat << EOF
 
@@ -28,7 +38,7 @@ cat << EOF
 ##################################################
 
 EOF
-./.bin/brew.sh
+./homebrew/setup.sh
 
 # Set macOS system preferences.
 cat << EOF

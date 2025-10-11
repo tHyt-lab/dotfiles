@@ -1,11 +1,16 @@
 #!/bin/sh
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
-for dotfile in "${SCRIPT_DIR}"/config/.??* ; do
-    [[ "$dotfile" == "${SCRIPT_DIR}/.git" ]] && continue
-    [[ "$dotfile" == "${SCRIPT_DIR}/.github" ]] && continue
-    [[ "$dotfile" == "${SCRIPT_DIR}/.DS_Store" ]] && continue
+# Link .gitconfig from project root
+ln -fnsv "${PROJECT_ROOT}/.gitconfig" "$HOME/.gitconfig"
 
-    ln -fnsv "$dotfile" "$HOME"
-done
+# Link .zshrc from zsh directory
+ln -fnsv "${PROJECT_ROOT}/zsh/.zshrc" "$HOME/.zshrc"
+
+# Link .p10k.zsh from zsh directory
+ln -fnsv "${PROJECT_ROOT}/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
+
+# Link .config from project root
+ln -fnsv "${PROJECT_ROOT}/.config" "$HOME/.config"
