@@ -8,7 +8,7 @@ cat << EOF
 ##################################################
 
 EOF
-./.bin/init.sh
+./scripts/init.sh
 
 # Install Oh My Zsh and plugins.
 cat << EOF
@@ -18,7 +18,7 @@ cat << EOF
 ##################################################
 
 EOF
-./.bin/omz-setup.sh
+./zsh/setup.sh
 
 # Link dotfiles.
 cat << EOF
@@ -28,7 +28,7 @@ cat << EOF
 ##################################################
 
 EOF
-./.bin/link.sh
+./scripts/link.sh
 
 # Install macOS applications.
 cat << EOF
@@ -48,7 +48,7 @@ cat << EOF
 ##################################################
 
 EOF
-./.bin/defaults.sh
+./scripts/defaults.sh
 
 # Install Fonts
 cat << EOF
@@ -58,7 +58,7 @@ cat << EOF
 ##################################################
 
 EOF
-./.bin/font-install.sh
+./scripts/font-install.sh
 
 cat << EOF
 

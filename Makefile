@@ -1,22 +1,26 @@
 # Do everything.
-# all: init link defaults brew
-all: init link defaults brew fonts
+all: init omz link brew defaults fonts
 
 # Set initial preference.
 init:
-	.bin/init.sh
+	scripts/init.sh
+
+# Install Oh My Zsh and plugins.
+omz:
+	zsh/setup.sh
 
 # Link dotfiles.
 link:
-	.bin/link.sh
-
-# Set macOS system preferences.
-defaults:
-	.bin/defaults.sh
+	scripts/link.sh
 
 # Install macOS applications.
 brew:
-	.bin/brew.sh
+	homebrew/setup.sh
 
+# Set macOS system preferences.
+defaults:
+	scripts/defaults.sh
+
+# Install fonts.
 fonts:
-	.bin/font-install.sh
+	scripts/font-install.sh

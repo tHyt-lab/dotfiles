@@ -15,14 +15,14 @@ dotfiles/
 ├── .gitconfig        # Git設定
 ├── zsh/              # Zsh関連
 │   ├── .zshrc        # Zsh設定
-│   └── .p10k.zsh     # Powerlevel10k設定
+│   ├── .p10k.zsh     # Powerlevel10k設定
+│   └── setup.sh      # Oh My Zshセットアップ
 ├── homebrew/         # Homebrew関連
 │   ├── Brewfile      # パッケージ定義
 │   └── setup.sh      # Homebrewセットアップ
-├── .bin/             # セットアップスクリプト
-│   ├── omz-setup.sh  # Oh My Zshセットアップ
-│   ├── link.sh       # シンボリックリンク作成
+├── scripts/          # セットアップスクリプト
 │   ├── init.sh       # 初期設定
+│   ├── link.sh       # シンボリックリンク作成
 │   ├── defaults.sh   # macOS設定
 │   └── font-install.sh # フォントインストール
 └── setup.sh          # メインセットアップスクリプト
