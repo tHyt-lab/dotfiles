@@ -8,7 +8,17 @@ cat << EOF
 ##################################################
 
 EOF
-./.bin/init.sh
+./scripts/init.sh
+
+# Install Oh My Zsh and plugins.
+cat << EOF
+
+##################################################
+  Install Oh My Zsh and plugins.
+##################################################
+
+EOF
+./zsh/setup.sh
 
 # Link dotfiles.
 cat << EOF
@@ -18,7 +28,7 @@ cat << EOF
 ##################################################
 
 EOF
-./.bin/link.sh
+./scripts/link.sh
 
 # Install macOS applications.
 cat << EOF
@@ -28,7 +38,7 @@ cat << EOF
 ##################################################
 
 EOF
-./.bin/brew.sh
+./homebrew/setup.sh
 
 # Set macOS system preferences.
 cat << EOF
@@ -38,7 +48,7 @@ cat << EOF
 ##################################################
 
 EOF
-./.bin/defaults.sh
+./scripts/defaults.sh
 
 # Install Fonts
 cat << EOF
@@ -48,7 +58,7 @@ cat << EOF
 ##################################################
 
 EOF
-./.bin/font-install.sh
+./scripts/font-install.sh
 
 cat << EOF
 
