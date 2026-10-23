@@ -1,16 +1,37 @@
 #!/bin/sh
+set -eu
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+BACKUP_DIR="$HOME/.dotfiles_backup/$(date +%Y%m%d-%H%M%S)"
 
-# Link .gitconfig from project root
-ln -fnsv "${PROJECT_ROOT}/.gitconfig" "$HOME/.gitconfig"
+link() {
+	src="${PROJECT_ROOT}/$1"
+	dst="$HOME/$2"
 
-# Link .zshrc from zsh directory
-ln -fnsv "${PROJECT_ROOT}/zsh/.zshrc" "$HOME/.zshrc"
+	if [ -L "$dst" ] && [ "$(readlink "$dst")" = "$src" ]; then
+		echo "skip: $dst"
+		return
+	fi
 
-# Link .p10k.zsh from zsh directory
-ln -fnsv "${PROJECT_ROOT}/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
+	mkdir -p "$(dirname "$dst")"
+	# An old setup linked the whole ~/.config into this repo; backing up dst would then move this repo's own file.
+	if [ "$(cd "$(dirname "$dst")" && pwd -P)/$(basename "$dst")" = "$(cd "$(dirname "$src")" && pwd -P)/$(basename "$src")" ]; then
+		echo "error: $dst resolves to $src through a symlinked parent directory; remove that symlink first" >&2
+		exit 1
+	fi
+	# [ -e ] is false for a dangling symlink, so -L is needed to back it up instead of silently overwriting it.
+	if [ -L "$dst" ] || [ -e "$dst" ]; then
+		mkdir -p "$(dirname "${BACKUP_DIR}/$2")"
+		mv "$dst" "${BACKUP_DIR}/$2"
+		echo "backup: $dst -> ${BACKUP_DIR}/$2"
+	fi
+	ln -s "$src" "$dst"
+	echo "link: $dst -> $src"
+}
 
-# Link .config from project root
-ln -fnsv "${PROJECT_ROOT}/.config" "$HOME/.config"
+while read -r src dst; do
+	if [ -n "$src" ]; then
+		link "$src" "$dst"
+	fi
+done < "${SCRIPT_DIR}/links.conf"

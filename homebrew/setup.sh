@@ -1,4 +1,5 @@
 #!/bin/sh
+set -eu
 
 if [ "$(uname)" != "Darwin" ] ; then
 	echo "Not macOS!"
@@ -7,9 +8,8 @@ fi
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-which brew >/dev/null 2>&1 && brew doctor
-which brew >/dev/null 2>&1 && brew update --verbose
-which brew >/dev/null 2>&1 && brew upgrade --verbose
+# PATH has no Homebrew in a fresh non-login shell.
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
-which brew >/dev/null 2>&1 && brew bundle --file "${SCRIPT_DIR}/Brewfile" --verbose
-which brew >/dev/null 2>&1 && brew cleanup --verbose
+# --no-upgrade keeps re-runs from changing versions of already installed packages.
+brew bundle install --no-upgrade --file "${SCRIPT_DIR}/Brewfile"
