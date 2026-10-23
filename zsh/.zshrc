@@ -120,8 +120,6 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
-eval "$(mise activate zsh)"
+export GPG_TTY=$(tty)
 
-# alias
-alias ll="eza -la"
-alias cat="bat"
+eval "$(mise activate zsh)"
