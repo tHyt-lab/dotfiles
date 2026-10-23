@@ -14,7 +14,7 @@ Homebrew・リポジトリのclone・各設定(`setup.sh`)まで自動で実行�
 
 ## 手動で行う作業
 - App Storeへのサインインとアプリのインストール (masは未導入。GitHub Actionsでこけてしまうため)
-- GPG秘密鍵のインポートと `.gitconfig` の `signingkey` の確認 (コミット署名)
+- GPG秘密鍵のインポート (コミット署名。`signingkey` は未設定のため、`user.email` に一致するUIDの鍵が使われる)
 - `gh auth login`
 - `claude` の初回ログイン
 - システム設定での権限許可 (Maccyなどのアクセシビリティ)
