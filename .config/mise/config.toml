@@ -1,2 +1,14 @@
+[settings]
+minimum_release_age = "1d"
+
 [tools]
+bat = "latest"
+eza = "latest"
+ffmpeg = "latest"
+fzf = "latest"
+gh = "latest"
+jactionlint = "latest"
+jq = "latest"
+ni = "latest"
 node = "latest"
+uv = "latest"
