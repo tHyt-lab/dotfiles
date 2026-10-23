@@ -1,4 +1,5 @@
 #!/bin/bash
+set -eu
 
 # Set initial preference.
 cat << EOF
@@ -30,6 +31,16 @@ cat << EOF
 EOF
 ./scripts/link.sh
 
+# Install tools managed by mise.
+cat << EOF
+
+##################################################
+  Install tools managed by mise.
+##################################################
+
+EOF
+./scripts/mise.sh
+
 # Install macOS applications.
 cat << EOF
 
@@ -59,6 +70,16 @@ cat << EOF
 
 EOF
 ./scripts/font-install.sh
+
+# Install Claude Code.
+cat << EOF
+
+##################################################
+  Install Claude Code.
+##################################################
+
+EOF
+./scripts/claude-code.sh
 
 cat << EOF
 

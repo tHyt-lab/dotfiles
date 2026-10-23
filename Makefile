@@ -1,5 +1,5 @@
 # Do everything.
-all: init omz link brew defaults fonts
+all: init omz link mise brew defaults fonts claude-code
 
 # Set initial preference.
 init:
@@ -13,6 +13,10 @@ omz:
 link:
 	scripts/link.sh
 
+# Install tools managed by mise.
+mise:
+	scripts/mise.sh
+
 # Install macOS applications.
 brew:
 	homebrew/setup.sh
@@ -24,3 +28,11 @@ defaults:
 # Install fonts.
 fonts:
 	scripts/font-install.sh
+
+# Install Claude Code.
+claude-code:
+	scripts/claude-code.sh
+
+# Report drift between this repo and the machine.
+doctor:
+	scripts/doctor.sh

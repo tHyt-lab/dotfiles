@@ -1,13 +1,14 @@
 #!/bin/bash
+set -eu
 
-# Install xcode
-xcode-select --install
+# Homebrew's installer also installs the Command Line Tools when they are missing.
+if [ ! -x /opt/homebrew/bin/brew ]; then
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
 
-# Install brew
-which brew >/dev/null 2>&1 || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# python symbolic link
-# sudo ln -s $(which python3) /usr/local/bin/python
-
-(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Guarded so re-runs don't append duplicate lines.
+if ! grep -qs 'brew shellenv' "$HOME/.zprofile"; then
+	(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> "$HOME/.zprofile"
+fi
