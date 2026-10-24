@@ -42,7 +42,6 @@ dotfiles/
     ├── link.sh       # シンボリックリンク作成
     ├── mise.sh       # miseと管理ツールのインストール
     ├── defaults.sh   # macOS設定
-    ├── font-install.sh # フォントインストール
     ├── claude-code.sh  # Claude Codeインストール
     └── doctor.sh     # 差分確認
 ```

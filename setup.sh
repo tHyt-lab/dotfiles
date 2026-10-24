@@ -61,16 +61,6 @@ cat << EOF
 EOF
 ./scripts/defaults.sh
 
-# Install Fonts
-cat << EOF
-
-##################################################
-  Install Fonts
-##################################################
-
-EOF
-./scripts/font-install.sh
-
 # Install Claude Code.
 cat << EOF
 
