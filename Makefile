@@ -1,5 +1,5 @@
 # Do everything.
-all: init omz link mise brew defaults fonts claude-code
+all: init omz link mise brew defaults claude-code
 
 # Set initial preference.
 init:
@@ -24,10 +24,6 @@ brew:
 # Set macOS system preferences.
 defaults:
 	scripts/defaults.sh
-
-# Install fonts.
-fonts:
-	scripts/font-install.sh
 
 # Install Claude Code.
 claude-code:
